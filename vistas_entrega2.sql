@@ -1,7 +1,6 @@
 -- Autor: Alexei Sandoval
 USE vinoteca_el_copihue;
 
--- Vistas
 CREATE VIEW vista_detalle_ventas AS
 SELECT
     p.id_pedido,
@@ -27,7 +26,6 @@ FROM productos pr
 JOIN categorias c ON pr.id_categoria = c.id_categoria
 JOIN proveedores p ON pr.id_proveedor = p.id_proveedor;
 
--- Funciones
 DELIMITER //
 CREATE FUNCTION calcular_total_pedido(id_pedido_in INT)
 RETURNS INT
@@ -54,7 +52,6 @@ BEGIN
 END //
 DELIMITER ;
 
--- Stored Procedures
 DELIMITER //
 CREATE PROCEDURE sp_insertar_nuevo_pedido(
     IN id_cliente_in INT,
@@ -93,7 +90,6 @@ BEGIN
 END //
 DELIMITER ;
 
--- Triggers
 DELIMITER //
 CREATE TRIGGER tr_actualizar_total_pedido
 AFTER INSERT ON detalles_pedido
