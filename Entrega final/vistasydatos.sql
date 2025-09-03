@@ -233,7 +233,7 @@ TRUNCATE TABLE empleado;
 TRUNCATE TABLE sucursal;
 
 -- ----------------------------------------------------
--- INSERCIÓN DE DATOS DE DIMENSIONES
+-- DATOS
 -- ----------------------------------------------------
 
 INSERT INTO empleado (nombre, apellido, puesto, fecha_contratacion, email) VALUES
@@ -325,7 +325,7 @@ INSERT INTO vino_bodega (vino_id, bodega_id) VALUES
 (11, 1), (12, 3), (13, 2), (14, 4), (15, 1), (16, 2), (17, 5), (18, 2), (19, 3), (20, 1);
 
 -- ----------------------------------------------------
--- INSERCIÓN DE DATOS TRANSACCIONALES Y DE HECHOS
+-- TRANSACCIONALES Y DE HECHOS
 -- ----------------------------------------------------
 
 INSERT INTO dim_fecha (fecha_id, fecha, dia_semana, dia_mes, mes, anio, trimestre, es_fin_de_semana, nombre_mes)
