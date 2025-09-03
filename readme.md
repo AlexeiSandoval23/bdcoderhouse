@@ -4,7 +4,7 @@
 ---
 
 ## 1. Introducción  
-Este proyecto consiste en el diseño y la implementación de una base de datos relacional para **"Vinoteca El Copihue"**, un emprendimiento dedicado a la venta de vinos chilenos.  
+Este proyecto es principalmente para el proyecto final de CoderHouse.
 
 El objetivo principal es **centralizar y gestionar de manera eficiente toda la información clave del negocio**, desde el inventario de productos y el contacto con proveedores hasta el registro de clientes y el seguimiento de las ventas.  
 
@@ -49,7 +49,28 @@ La vinoteca opera bajo un modelo de **venta al por menor (retail)**.
 ## 5. Diagrama E-R  
 El siguiente **diagrama de entidad-relación (E-R)** representa la estructura lógica de la base de datos, mostrando entidades principales y relaciones entre ellas.  
 
-*(Aquí debe insertarse el diagrama como imagen o enlace al archivo)*  
+![alt text](E-R.png)
+
+Clientes, empleados y sucursales:
+Los clientes son quienes realizan pedidos. Cada pedido es gestionado por un empleado y está asociado a una sucursal específica.
+
+Pedidos y detalles:
+Un pedido puede contener varios productos (vinos). Esto se refleja en la relación con la tabla detalle_pedido, que especifica el vino comprado, la cantidad y el precio unitario.
+
+Vinos, proveedores y categorías:
+Cada vino es suministrado por un proveedor y se clasifica en una o varias categorías (ejemplo: tinto, blanco, espumante). Además, puede estar asociado a una o varias uvas y a una bodega, lo que permite un catálogo detallado.
+
+Stock y sucursales:
+El stock se gestiona de manera independiente en cada sucursal mediante la tabla stock, que relaciona un vino con la sucursal donde está disponible.
+
+Pagos y envíos:
+Cada pedido puede tener uno o más pagos (ejemplo: tarjeta, efectivo, transferencia) y se vincula también a un envío, el cual contiene la información de despacho, transportista y estado de la entrega.
+
+Movimientos de stock:
+La tabla movimiento_stock registra entradas y salidas de vinos en cada sucursal, permitiendo llevar un historial detallado de inventario.
+
+Análisis de ventas (fact_venta y dim_fecha):
+Para fines analíticos, la base incluye una tabla de hechos (fact_venta) vinculada con una dimensión de tiempo (dim_fecha). Esto permite generar reportes de ventas por día, mes, trimestre o año.
 
 ---
 
@@ -172,6 +193,6 @@ Esto proporciona a la vinoteca una **plataforma sólida para crecer**, mejorar s
 ---
 
 ## ✅ Recomendaciones Técnicas  
-- Ejecutar en un entorno **MySQL/MariaDB** con compatibilidad para `utf8mb4` y `InnoDB`.  
+- Ejecutar en un entorno **MySQL/MariaDB**.  
 - Verificar que no exista previamente una base con el nombre `vinoteca_el_copihue`.  
 - Correr cada script de forma **secuencial**, validando que no existan errores.  
